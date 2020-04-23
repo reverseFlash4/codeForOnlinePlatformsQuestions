@@ -1,4 +1,4 @@
-//Day 20 of Leetcode 30 days challenge, by Kartik Mohan
+//Day 21 of Leetcode 30 days challenge, by Kartik Mohan
 //Leftmost Column with at Least a One
 /**
  * // This is the BinaryMatrix's API interface.

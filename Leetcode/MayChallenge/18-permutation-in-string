@@ -1,0 +1,36 @@
+// Day 18 of LeetCode May Challenge, by Kartik Mohan
+// Permutation in String
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        if(!s1.length() || !s2.length() || s1.length()>s2.length()) return false;
+        int f1[26]={0};
+        int f2[26]={0};
+        int n=s1.length();
+        for(char c:s1) f1[c-'a']++;
+        bool ok=false;
+        for(int i=0;i<n;i++) f2[s2[i]-'a']++;
+        for(int i=n;i<=s2.length();i++)
+        {
+            bool ok2=true;
+            //cout<<i<<" ";
+            for(int j=0;j<26;j++)
+            {
+                if(f1[j]!=f2[j])
+                {
+                    ok2=false;
+                    break;
+                }
+            }
+            if(ok2)
+            {
+                ok=true;
+                break;
+            }
+            if(i==s2.length()) break;
+            f2[s2[i-n]-'a']--;
+            f2[s2[i]-'a']++;
+        }
+        return ok;
+    }
+};
